@@ -1,4 +1,4 @@
-# Carson Reloaded
+# Carson Wu
 
 Simple, clean personal blogging template for Jekyll based on Strata by HTML5 UP.
 
@@ -41,7 +41,7 @@ $ bundle exec jekyll serve
 
 ## Editing
 
-Carson Reloaded is already optimized for adding, updating and removing posts and footer elements in [CloudCannon](https://app.cloudcannon.com/).
+Carson Wu is already optimized for adding, updating and removing posts and footer elements in [CloudCannon](https://app.cloudcannon.com/).
 
 ### Posts
 
