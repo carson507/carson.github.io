@@ -1,10 +1,41 @@
 ---
 layout: post
+title: 使用生成迭代器实现持续输出或实时输出
+date: 2015-05-20T13:48:44.000Z
+categories: update
 ---
-<img src="/images/fulls/03.jpg" class="fit image"> Curabitur orci turpis, egestas placerat velit eget, dictum pellentesque ipsum. Suspendisse potenti. Suspendisse ac maximus arcu. Sed ut mattis ex. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum eleifend odio vitae varius aliquam. Quisque ac pretium nisi. Curabitur tempus urna ac ultrices commodo.
+<img src="/images/fulls/03.jpg" class="fit image"> 
+关于获取iperf远程的输出，使用iter方法
 
-Curabitur iaculis est at mattis mattis. Aliquam erat volutpat. Etiam vitae cursus quam. Nunc ultricies nunc non lorem fringilla cursus. Etiam dapibus libero ac turpis accumsan pulvinar. Sed auctor velit eget mi consequat bibendum. Aliquam interdum purus eget metus pretium ullamcorper.
+```Python
+class DLTxIperf(QThread):
+    endPopen = pyqtSignal()
+    plot = pyqtSignal(float)
+    def run(self):
+        cmd = "./gperf/iperf.exe -c 135.252.3.108 -u -t2000 -i1 -b100M -p5001"
+        self.pi = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.STDOUT)
+        for log in iter(self.pi.stdout.readline, ''):
+            str = log.decode()
+            index1 = str.find("Mbits/sec")
+            index2 = str.find("MBytes")
+            if index1 ==-1 and index2 == -1:
+                pass
+            else:
+                count = float(str[index2+6:index1].strip())
+                self.plot.emit(count)
+```
+iter方法是python的一个内建方法，它会返回一个迭代器对象。它定义如下
 
-Pellentesque feugiat ex non ligula commodo, eget varius tortor pellentesque. Pellentesque id tortor felis. Cras fringilla ante eget orci laoreet, non consequat urna suscipit. Pellentesque luctus ac nulla vitae porttitor. Proin sed tortor quis magna efficitur efficitur a id leo. Donec efficitur augue et laoreet maximus. Ut semper egestas porttitor. Phasellus sagittis vulputate sem at laoreet.
+iter(o[, sentinel])
 
-Sed lobortis urna ut mi volutpat, sit amet euismod sapien tincidunt. Nulla facilisi. Pellentesque quis tempus neque. Mauris dictum ac sapien nec congue. In hac habitasse platea dictumst. Duis id pellentesque nisl. Morbi eget massa magna.
+
+第一个参数o可以是一个可迭代对象，也可以是一个可调用对象。
+
+当参数o是可迭代对象时，第二个参数可省。这里又分为两种情况。
+
+    如果参数o实现了__iter__方法，则直接调用该方法，创建迭代器。
+    如果参数o没有实现__iter__方法，那么它比是一个序列对象。iter方法根据该序列对象诱导出一个迭代器。
+
+如果参数o是一个可调用对象时，iter方法返回的迭代器工作原理如下。
+
+每次调用迭代器的next方法时，最终都会调用o方法。此时第2个参数sentinel必须给定。当o方法的返回值与sentinel相同时，抛出StopIteration异常
