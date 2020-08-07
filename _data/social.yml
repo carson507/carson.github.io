@@ -1,8 +1,0 @@
-- name: Github
-  link: 'https://github.com/carson507'
-  social_icon: Facebook
-  new_window: true
-- name: RSS
-  link: '/'
-  social_icon: RSS
-  new_window: true
