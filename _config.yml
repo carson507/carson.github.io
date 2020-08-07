@@ -1,76 +1,88 @@
-# title: Your Site Title
-# description: The description of your site.
-# email: your-email@address.com
+# Site settings
+title: "MADness"
+description: A Template for Jekyll
 
-# author: Your name #  Default is your site title.
+# Files
+baseurl:
+pagesdir: pages
+assets:
+  libs: assets/libs
+  owner: assets/owner
+logo: logo.png
+discus_shortname: MADness
+email: mad@ness.com
+url: "http://madforjekyll.github.io"
+search: true
+share: true
+comments: true
 
-# # Your social accounts.
-# social:
-#   github: github_username
-#   twitter: twitter_username
-#   facebook: facebook_username
-#   instagram: instagram_username
-#   linkedin: linkedin_username
-#   weibo: weibo_username
+# Read Time is a calculator tp provide post read-time based on word count. Usage is recommended.
+readtime: true
 
-# # Theme Settings
+# Specify the average Words per minute. If not defined, 180 will be used
+wpm: 200
 
-# # Your site's logo. Will be shown on the left top of your page.
-# logo: /img/logo.svg
-# # If the images of our blog are stored in an external cloud. You can use the jekyll-img-prefix plugin and set your images' base URL here.
-# img_prefix: https://your-img-cdn.com
-# # The RSS link of your blog.
-# rss: "/feed.xml"
+# Owner/author information
+owner:
+  name:   MADness
+  avatar: avatar.jpg
+  # Use the coder's toolbox at http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii to encode your description into XML string
+  description:    MAD for Jekyll
 
-# # The followings are settings for displays of your blog.
-# theme_setting:
-#   # The slides count in the slides layout. Default is 4.
-#   slides_count: 5
-#   # The ← back URL on the top of your post page. Default is your site's home page.
-#   blog_page: "blog/index.md"
-#   # The URL on your name on the bottom of your post and page. Default is your site's home page.
-#   about_page: "about.md"
-#   #  The URL of the menu icon(which has three black lines). Will be shown on the slides/book/chapter layouts It won't be shown if blank.
-#   archive_page: "archive.md"
-#   # The nav links on the top right of home/page/post/blog layout. You can set a local page(by setting a layout's path) or and external link ( both title and url are required) here.
-#   nav_pages:
-#     - "about.md"
-#     -
-#       title: "External Link Title"
-#       url: "https://your-external-link.com"
-#   # Every default value in the following settings is false. You can set them globally here or separately in a single post/page/chapter.
-#   code: true # Code highlight.
-#   math: true # Mathjax
-#   mermaid: true # Mermaid
-#   #  Locales of this theme.
-#   lang:
-#     category_all: All # The first tag in the categories bar on the blog layout page. By clicking it all of your posts will be shown. Default is 'All'.
-#     blog_title: Blog # The text of ← back url on the top of the post layout.  Default is 'Home'.
-#     # The locales of the comment controls.
-#     comment:
-#       user: "昵称"
-#       email: "邮箱"
-#       url: "链接"
-#       message: "说点什么吧..."
-#       reply: "回复"
+# Social networking links used in footer. Update and remove as you like.
+twitter_username: MAD4Jekyll
+facebook_username: MAD4Jekyll
+github_username: MAD4Jekyll
+deviantart_username: MAD4Jekyll
+500px_username: MAD4Jekyll
+flickr_username: MAD4Jekyll
+instagram_username: MAD4Jekyll
 
-# head_code: |
-#   <!-- Extra codes in the head of your site pages. You can add your Google Analysis codes here! -->
+ 
+# Internal nav
+nav:
+ writing: "root_url/writing/"
+ gallery: "root_url/gallery/"
+ about: "root_url/about/"
 
-# # The settings of comments.
-# comment:
-#   # You should set it to enable comment
-#   enabled: true
-#   # Your comment provider
-#   provider: disqus # static/disqus
-#   # If provider == disqus
-#   disqus:
-#     name: website_name
-#   # Or provider == static
-#   static:
-#     # Your static comment url.
-#     postUrl:  https://api.staticman.net/v2/connect/GITHUB-USERNAME/GITHUB-REPOSITORY
-# # The settings of local smileys used in static comments. The jekyll-smiley plugin is required.
-# smiley:
-#   enabled: true
-#   dir: img/smileys
+
+# Server
+destination:      	 ./_site
+port:             	 4000
+
+
+#dependencies
+# Gems
+gems:
+  - jekyll-paginate
+
+
+# Build settings
+highlighter:         rouge
+markdown:           kramdown
+kramdown:
+    extensions:     
+     - Hard_wrap
+     - no_intra_emphasis
+     - strikethrough
+     - fenced_code_blocks
+     - autolink
+     - tables
+     - with_toc_data
+     - highlight
+     - footnotes
+    input:          GFM
+sass:
+    style:          :compressed
+paginate: 5
+paginate_path: "/writing/page:num/"
+permalink: "/writing/:title/"
+exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
+slugify: "pretty"
+
+
+# Analytics and webmaster tools stuff goes here
+google_analytics:   UA-xxxxxxxx-x
+google_verify:      
+# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
+bing_verify:         
