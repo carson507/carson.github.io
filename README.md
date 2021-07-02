@@ -1,52 +1,38 @@
-# MAD4Jekyll - Theme for Jekyll 
+# Jekyll GitBook
 
-> !!! Configured for **USER** pages !!!
+Make Jelly site have a GitBook look!
 
-## Welcome to MAD4Jekyll!
-     
+## Demo
 
-### 'MAD4Jekyll' is a theme for [Jekyll](https://github.com/jekyll/)
+Live demo on Github Pages: [https://sighingnow.github.io/jekyll-gitbook](https://sighingnow.github.io/jekyll-gitbook)
 
-> The template has been revised as of August 27th, 2016.
+[![Jekyll Themes](https://img.shields.io/badge/featured%20on-JekyllThemes-red.svg)](https://jekyll-themes.com/jekyll-gitbook/)
 
-----------
+## Why Jekyll with GitBook
 
-> A big thank you to <a href="https://github.com/patmuk">Patrick Mukherjee</a> for his contribution on regenerating the code.
+GitBook is an amazing frontend style to present and organize contents (such as book chapters
+and blogs) on Web. The typical to deploy GitBook at [Github Pages][1]
+is building HTML files locally and then push to Github repository, usually to the `gh-pages`
+branch. It's quite annoying to repeat such workload and make it hard for people do version
+control via git for when there are generated HTML files to be staged in and out.
 
+This theme takes style definition out of generated GitBook site and provided the template
+for Jekyll to rendering markdown documents to HTML, thus the whole site can be deployed
+to [Github Pages][1] without generating and uploading HTML bundle every time when there are
+changes to the original repo.
 
-### It is based on [Clean Blog](http://ironsummitmedia.github.io/startbootstrap-clean-blog-jekyll/) theme by [Start Bootstrap](http://startbootstrap.com/).
+## How to Get Started
 
-     
-#  Homepage  
+This theme can be used just as other [Jekyll themes][1].
 
-#### Header Image
+[Fork][3] this repository and add your markdown posts to the `_posts` folder.
 
-#### A brief description
+## License
 
-#### A slider (it is turned off by default, since there is a also a separate section for a gallery)
+This work is open sourced under the Apache License, Version 2.0.
 
-#### Contact Info
-            
+Copyright 2019 Tao He.
 
-#  Navbar 
-
-#### A logo on the left side
- 
-#### 3 Pages for <a href="{{ site.baseurl }}/writing/">'blogging'</a>, <a href="{{ site.baseurl }}/gallery/">'gallery sliders'</a>, <a href="{{ site.baseurl }}/about/">'about'</a>.
-       
-
-#####  Search page, with all the tags and categories at the bottom
-
-##### Footnotes poping up.
-
->## !!! IMPORTANT !!! Before You Begin
->
->####  Set the **_config.yml** file, with your personal info!
-
-## What's Included
-
-#### A full Jekyll environment is included with this theme. If you have Jekyll installed, simply run `jekyll serve` in your command line and preview the build in your browser. You can use `jekyll serve --watch` to watch for changes in the source files as well.
-
-#### A Grunt environment is also included. There are a number of tasks it performs like minification of the JavaScript, compiling of the LESS files, adding banners to keep the Apache 2.0 license intact, and watching for changes. Run the grunt default task by entering `grunt` into your command line which will build the files. You can use `grunt watch` if you are working on the JavaScript or the LESS.
-
-#### You can run `jekyll serve --watch` and `grunt watch` at the same time to watch for changes and then build them all at once.
+[1]: https://pages.github.com
+[2]: https://pages.github.com/themes
+[3]: https://github.com/sighingnow/jekyll-gitbook/fork

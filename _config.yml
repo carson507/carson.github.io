@@ -1,88 +1,41 @@
-# Site settings
-title: "Carson Wu"
-description: A Website for Tec
+# Configurations
+title:            Jekyll Gitbook
+longtitle:        Jekyll Gitbook
+author:           HE Tao
+email:            sighingnow@gmail.com
+description: >
+  Build Jekyll site with the GitBook style.
 
-# Files
-baseurl:
-pagesdir: pages
-assets:
-  libs: assets/libs
-  owner: assets/owner
-logo: logo.png
-discus_shortname: Carson Wu
-email: mad@ness.com
-url: "http://madforjekyll.github.io"
-search: true
-share: true
-comments: true
+version:          1.0
+gitbook_version:  3.2.3
 
-# Read Time is a calculator tp provide post read-time based on word count. Usage is recommended.
-readtime: true
+url:              'https://sighingnow.github.io'
+baseurl:          '/jekyll-gitbook'
+rss:              RSS
 
-# Specify the average Words per minute. If not defined, 180 will be used
-wpm: 200
-
-# Owner/author information
-owner:
-  name:   Carson Wu
-  avatar: avatar.jpg
-  # Use the coder's toolbox at http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii to encode your description into XML string
-  description:    MAD for Jekyll
-
-# Social networking links used in footer. Update and remove as you like.
-twitter_username: Carson Wu
-facebook_username: Carson Wu
-github_username: Carson Wu
-deviantart_username: Carson Wu
-500px_username: Carson Wu
-flickr_username: Carson Wu
-instagram_username: Carson Wu
-
- 
-# Internal nav
-nav:
- writing: "root_url/writing/"
- gallery: "root_url/gallery/"
- about: "root_url/about/"
-
-
-# Server
-destination:      	 ./_site
-port:             	 4000
-
-
-#dependencies
-# Gems
-gems:
-  - jekyll-paginate
-
-
-# Build settings
-highlighter:         rouge
-markdown:           kramdown
+# markdown render engine.
+markdown:         kramdown
 kramdown:
-    extensions:     
-     - Hard_wrap
-     - no_intra_emphasis
-     - strikethrough
-     - fenced_code_blocks
-     - autolink
-     - tables
-     - with_toc_data
-     - highlight
-     - footnotes
-    input:          GFM
-sass:
-    style:          :compressed
-paginate: 5
-paginate_path: "/writing/page:num/"
-permalink: "/writing/:title/"
-exclude: ["less","node_modules","Gruntfile.js","package.json","README.md"]
-slugify: "pretty"
+  auto_ids:               true
+  input:                  GFM
+  math_engine:            mathjax
+  smart_quotes:           lsquo,rsquo,ldquo,rdquo
+  toc_levels:             1..6
+  syntax_highlighter:     rouge
+  syntax_highlighter_opts:
+    guess_lang:           true
 
+markdown_ext:     markdown,mkdown,mkdn,mkd,md
 
-# Analytics and webmaster tools stuff goes here
-google_analytics:   UA-xxxxxxxx-x
-google_verify:      
-# https://ssl.bing.com/webmaster/configure/verify/ownership Option 2 content= goes here
-bing_verify:         
+# Permalinks
+permalink:        /:categories/:year-:month-:day-:title:output_ext
+
+exclude:
+  - _drafts
+
+destination:      ./_site
+incremental:      false
+regenerate:       true
+
+plugins:
+  - jemoji
